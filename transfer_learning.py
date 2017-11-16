@@ -24,21 +24,19 @@ base_model = Xception(input_shape=(img_cols, img_rows, n_channels), weights='ima
 
 out = base_model.output
 out = GlobalAveragePooling2D()(out)
-predictions = Dense(2, activation='softmax')(out)
+predictions = Dense(2, activation='softmax')(out) 
 
 for layer in base_model.layers:
     layer.trainable = False
 
 model = Model(base_model.input, predictions)
 
-model.compile(loss=keras.losses.binary_crossentropy,
+model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.rmsprop(lr=0.0001, decay=1e-6),
               metrics=['accuracy'])
 
 # Learning
 train_datagen = ImageDataGenerator(
-    samplewise_center=True,
-    samplewise_std_normalization=True,
     rotation_range=15,
     width_shift_range=0.2,
     height_shift_range=0.2,
@@ -49,7 +47,7 @@ train_gen = train_datagen.flow_from_directory(
     directory=learn_data_paths['Train'],
     target_size=(img_cols, img_rows),
     batch_size=batch_size,
-    class_mode='binary')
+    class_mode='categorical')
 
 validation_datagen = ImageDataGenerator(rescale=1./255)
 
@@ -57,7 +55,7 @@ validation_gen = validation_datagen.flow_from_directory(
     directory=learn_data_paths['Validation'],
     target_size=(img_cols, img_rows),
     batch_size=batch_size,
-    class_mode='binary')
+    class_mode='categorical')
 
 model.fit_generator(
     generator=train_gen,
