@@ -41,8 +41,9 @@ model.add(Activation('relu'))
 model.add(Dropout(0.4))
 model.add(Dense(1))
 model.add(Activation('sigmoid'))
-model.compile(loss='binary_crossentropy',
-              optimizer='rmsprop',
+
+model.compile(loss=keras.losses.binary_crossentropy,
+              optimizer=keras.optimizers.rmsprop(lr=0.001),
               metrics=['accuracy'])
 
 # Learning
