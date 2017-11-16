@@ -102,7 +102,7 @@ Accuracy после 40-ка эпох составляет 0.76 - такой ре
 
 Теперь accuracy составляет 0.83, что является желаемым результатом. 
 
-Код - [transfer_learning.py]().
+Код - [transfer_learning.py](https://github.com/comratvlad/HCats_vs_HDogs/blob/master/transfer_learning.py).
 
 ## Выводы
 Результаты по трем моделям можно видеть ниже.
