@@ -1,4 +1,4 @@
-"""Learning a simple CNN model on the clean data with augmentation"""
+"""Learning a simple CNN model"""
 
 import keras
 from keras.callbacks import ModelCheckpoint
