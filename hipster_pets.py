@@ -11,7 +11,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-# Not use anymore.
+# Not used anymore.
 def create_binary_dataset(size=1400):
     """ Creating binary dataset file for quick load.
 
@@ -32,7 +32,7 @@ def create_binary_dataset(size=1400):
         pickle.dump(array(data), file)
 
 
-# Not use anymore.
+# Not used anymore.
 def get_data(count_per_tag=1400, shuffle=True, train_count=1000, size=(150, 150, 3)):
 
     assert type(count_per_tag) == type(train_count) == int, 'Wrong count format.'
