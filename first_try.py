@@ -72,7 +72,7 @@ model.fit_generator(
 model.load_weights(model_paths["Simple_cnn"])
 score = model.evaluate_generator(
     generator=validation_gen,
-    validation_steps=validation_samples/batch_size
+    steps=validation_samples/batch_size
 )
 
 print("Best loss: {}".format(score[0]))
