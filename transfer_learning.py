@@ -69,7 +69,7 @@ model.fit_generator(
 # Evaluating
 model.load_weights(model_paths["Deep_cnn"])
 score = model.evaluate_generator(
-    generator=validation_datagen,
+    generator=validation_gen,
     steps=validation_samples/batch_size
 )
 
